@@ -163,9 +163,11 @@ validated. These remain explicit pre-release verification steps.
 
 ## Artwork and trademarks
 
-`extension/assets/icon.svg` is the unmodified Copilot Octicon from GitHub's
-official Primer Octicons repository. `sidebar-icon.svg` places the same mark in
-rail-specific rounded tile chrome. `hero-image.jpg` is original,
+`extension/assets/icon.svg` is the transparent conversation-row mask glyph
+using the unmodified Copilot Octicon from GitHub's official Primer Octicons
+repository. `sidebar-icon.svg` places the same mark in the colored shared
+identity used by the Provider Rail, conversation headers, Message Center, and
+mentions. `hero-image.jpg` is original,
 Tutti-maintained record-sleeve artwork and does not reproduce the GitHub mark.
 Both assets are local and remain below 256 KiB. “GitHub” and “Copilot” are
 trademarks of GitHub, Inc.; their use here identifies the compatible official
