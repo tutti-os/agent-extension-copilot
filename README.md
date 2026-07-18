@@ -23,7 +23,7 @@ path to Tutti.
 | Signing key ID            | `tutti-copilot-release-v1`                                   |
 | CDN base                  | `https://d1x7gb6wqsqmnm.cloudfront.net/tutti-agent-releases` |
 
-Manifest v1 stores `agentKey`; the generic Tutti host derives the Target and
+Manifest v2 stores `agentKey`; the generic Tutti host derives the Target and
 open ACP provider identities above after verifying the signed extension. Those
 fields are intentionally not added as unsupported manifest properties.
 
@@ -163,11 +163,10 @@ validated. These remain explicit pre-release verification steps.
 
 ## Artwork and trademarks
 
-`extension/assets/icon.svg` is the transparent conversation-row mask glyph
-using the unmodified Copilot Octicon from GitHub's official Primer Octicons
-repository. `sidebar-icon.svg` places the same mark in the colored shared
-identity used by the Provider Rail, conversation headers, Message Center, and
-mentions. `hero-image.jpg` is original,
+`extension/assets/icon.svg` places the Copilot Octicon from GitHub's official
+Primer Octicons repository in the colored shared identity used by the Provider
+Rail, conversation headers, Message Center, and mentions. `mask-icon.svg` is
+the transparent conversation-row mask glyph. `hero-image.jpg` is original,
 Tutti-maintained record-sleeve artwork and does not reproduce the GitHub mark.
 Both assets are local and remain below 256 KiB. “GitHub” and “Copilot” are
 trademarks of GitHub, Inc.; their use here identifies the compatible official

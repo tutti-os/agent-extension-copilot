@@ -297,7 +297,7 @@ async function writeFixture(packageDir) {
     path.join(packageDir, "tutti.agent.json"),
     `${JSON.stringify(
       {
-        schemaVersion: "tutti.agent.manifest.v1",
+        schemaVersion: "tutti.agent.manifest.v2",
         agentKey: "copilot",
         version: "1.0.0",
         name: "GitHub Copilot CLI",
