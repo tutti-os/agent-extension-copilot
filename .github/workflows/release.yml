@@ -6,7 +6,10 @@ on:
       version:
         description: Immutable extension version
         required: true
-        default: "1.0.0"
+        default: "2.0.1"
+      min_tutti_version:
+        description: Oldest verified Tutti version that accepts this package contract
+        required: true
 
 permissions:
   contents: read
@@ -15,7 +18,7 @@ permissions:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   AGENT_KEY: copilot
-  MIN_TUTTI_VERSION: "0.0.0"
+  MIN_TUTTI_VERSION: ${{ inputs.min_tutti_version }}
   SIGNING_KEY_ID: tutti-copilot-release-v1
   S3_PREFIX: tutti-agent-releases
   RELEASE_ASSETS_BASE_URL: https://d1x7gb6wqsqmnm.cloudfront.net/tutti-agent-releases
