@@ -24,7 +24,7 @@ over every community reference.
 | Slash commands | runtime snapshot only | A real `available_commands_update` was observed. No static table is packaged. The official reference says commands absent from that update—including interactive picker commands such as `/login`, `/resume`, and `/settings`—must not be treated as ACP commands. |
 | Reasoning effort | no composer option | The official ACP reference says effort and tool-filter flags are fixed when the server launches and cannot be selected by `session/new`. |
 | Tool mappings | empty | No paid prompt was sent and no tool-call payload/tool ID was observed. Unknown tools remain generic. |
-| Authentication | prior terminal login or supported token | `initialize` advertised terminal auth `copilot login`. The [official install guide](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) documents subscription/policy requirements and supported token variables. ACP does not support the interactive `/login` picker. |
+| Authentication | ACP terminal auth or supported token | `initialize` advertised terminal auth `copilot login`. Tutti launches its verified managed runtime with the advertised `login` argument in a Workspace Terminal, then polls ACP readiness. The [official install guide](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) documents subscription/policy requirements and supported token variables. This is distinct from the unsupported interactive `/login` picker inside ACP chat. |
 
 The complete sanitized probe summary is in
 [`probes/copilot-1.0.71.json`](probes/copilot-1.0.71.json).
@@ -65,7 +65,7 @@ behavior traceable to official sources and the real 1.0.71 probe.
 
 ## Artwork decision
 
-Redistribution rights for official Copilot identity artwork were not assumed.
-The packaged icon and hero are original, neutral Tutti-maintained SVGs with no
-remote references. They identify the integration in text without imitating an
-official GitHub mark.
+The packaged icon is the unmodified `copilot-96.svg` from GitHub's official
+[Primer Octicons commit `e7c50b6`](https://github.com/primer/octicons/blob/e7c50b61017b607b81cdc58d4774f5aed10a5aa3/icons/copilot-96.svg).
+The packaged record-sleeve hero is original Tutti-maintained artwork and does
+not reproduce or alter the GitHub mark. Both assets remain local and passive.

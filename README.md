@@ -9,19 +9,19 @@ path to Tutti.
 
 ## Identity and runtime contract
 
-| Contract | Value |
-| --- | --- |
-| Repository | `tutti-os/agent-extension-copilot` |
-| Manifest agent key | `copilot` |
-| Host-derived Agent Target | `extension:copilot` |
-| Host-derived provider | `acp:copilot` |
-| Extension version | `1.0.0` |
-| Runtime package | `@github/copilot@1.0.71` (exact) |
-| Executable | `${installRoot}/node_modules/.bin/copilot` |
-| ACP launch | `copilot --acp --stdio` |
-| Compatible runtime | `>=1.0.71 <2.0.0` |
-| Signing key ID | `tutti-copilot-release-v1` |
-| CDN base | `https://d1x7gb6wqsqmnm.cloudfront.net/tutti-agent-releases` |
+| Contract                  | Value                                                        |
+| ------------------------- | ------------------------------------------------------------ |
+| Repository                | `tutti-os/agent-extension-copilot`                           |
+| Manifest agent key        | `copilot`                                                    |
+| Host-derived Agent Target | `extension:copilot`                                          |
+| Host-derived provider     | `acp:copilot`                                                |
+| Extension version         | `1.0.0`                                                      |
+| Runtime package           | `@github/copilot@1.0.71` (exact)                             |
+| Executable                | `${installRoot}/node_modules/.bin/copilot`                   |
+| ACP launch                | `copilot --acp --stdio`                                      |
+| Compatible runtime        | `>=1.0.71 <2.0.0`                                            |
+| Signing key ID            | `tutti-copilot-release-v1`                                   |
+| CDN base                  | `https://d1x7gb6wqsqmnm.cloudfront.net/tutti-agent-releases` |
 
 Manifest v1 stores `agentKey`; the generic Tutti host derives the Target and
 open ACP provider identities above after verifying the signed extension. Those
@@ -39,7 +39,8 @@ GitHub's [installation documentation](https://docs.github.com/en/copilot/how-tos
 requires Node.js 22 or newer and an active Copilot subscription. Organization
 or enterprise policy can disable Copilot CLI even when a user has Copilot.
 
-Authenticate before starting the Agent:
+When Tutti reports that authentication is required, continuing setup opens the
+managed Copilot runtime's advertised terminal-auth flow:
 
 ```sh
 copilot login
@@ -48,9 +49,10 @@ copilot login
 Alternatively, use an officially supported token environment variable in this
 precedence order: `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, then `GITHUB_TOKEN`. The
 ACP `initialize` response from 1.0.71 advertises `copilot-login` as terminal
-authentication (`copilot login`). ACP cannot drive the interactive `/login`
-picker, so this extension does not claim that login can be completed inside
-Tutti.
+authentication (`copilot login`). Tutti executes that flow in a Workspace
+Terminal and polls ACP readiness until Copilot finishes account signup/login.
+This is separate from the unsupported interactive `/login` picker inside an
+ACP chat session.
 
 ## Verified ACP behavior
 
@@ -161,12 +163,13 @@ validated. These remain explicit pre-release verification steps.
 
 ## Artwork and trademarks
 
-`extension/assets/icon.svg` and `hero-image.svg` are neutral,
-Tutti-maintained artwork created for this integration. They do not copy or
-claim to be official GitHub Copilot brand assets, contain no remote references,
-and remain below 256 KiB. “GitHub” and “Copilot” are trademarks of GitHub, Inc.;
-their use here identifies the compatible official runtime and does not imply
-endorsement.
+`extension/assets/icon.svg` is the unmodified Copilot Octicon from GitHub's
+official Primer Octicons repository. `sidebar-icon.svg` places the same mark in
+rail-specific rounded tile chrome. `hero-image.jpg` is original,
+Tutti-maintained record-sleeve artwork and does not reproduce the GitHub mark.
+Both assets are local and remain below 256 KiB. “GitHub” and “Copilot” are
+trademarks of GitHub, Inc.; their use here identifies the compatible official
+runtime and does not imply endorsement.
 
 ## Reference decisions and limitations
 

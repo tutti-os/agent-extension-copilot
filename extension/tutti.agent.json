@@ -8,9 +8,13 @@
     "type": "asset",
     "src": "assets/icon.svg"
   },
+  "sidebarIcon": {
+    "type": "asset",
+    "src": "assets/sidebar-icon.svg"
+  },
   "heroImage": {
     "type": "asset",
-    "src": "assets/hero-image.svg"
+    "src": "assets/hero-image.jpg"
   },
   "runtime": {
     "kind": "standard-acp",
@@ -25,10 +29,7 @@
     },
     "launch": {
       "executable": "${installRoot}/node_modules/.bin/copilot",
-      "args": [
-        "--acp",
-        "--stdio"
-      ]
+      "args": ["--acp", "--stdio"]
     }
   },
   "profiles": {

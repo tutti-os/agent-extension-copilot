@@ -63,7 +63,6 @@ export async function validatePackage(packageDir, expectedAgentKey) {
   await validateDeclaredFiles(packageDir, manifest);
   return manifest;
 }
-
 export function validateManifest(manifest, expectedAgentKey) {
   if (!manifest || typeof manifest !== "object" || Array.isArray(manifest)) {
     throw new Error("agent manifest must be an object");
@@ -77,6 +76,7 @@ export function validateManifest(manifest, expectedAgentKey) {
       "name",
       "description",
       "icon",
+      "sidebarIcon",
       "heroImage",
       "runtime",
       "profiles",
@@ -104,6 +104,9 @@ export function validateManifest(manifest, expectedAgentKey) {
     requireString(manifest.description, "manifest description");
   }
   validateIcon(manifest.icon);
+  if (manifest.sidebarIcon !== undefined) {
+    validateSidebarIcon(manifest.sidebarIcon);
+  }
   if (manifest.heroImage !== undefined) {
     validateHeroImage(manifest.heroImage);
   }
@@ -131,6 +134,14 @@ function validateHeroImage(heroImage) {
   }
   rejectUnknownKeys(heroImage, new Set(["type", "src"]), "manifest heroImage");
   requireRelativePath(heroImage.src, "manifest heroImage.src");
+}
+
+function validateSidebarIcon(sidebarIcon) {
+  if (!sidebarIcon || typeof sidebarIcon !== "object" || sidebarIcon.type !== "asset") {
+    throw new Error("manifest sidebarIcon.type must be asset");
+  }
+  rejectUnknownKeys(sidebarIcon, new Set(["type", "src"]), "manifest sidebarIcon");
+  requireRelativePath(sidebarIcon.src, "manifest sidebarIcon.src");
 }
 
 function validateRuntime(runtime) {
@@ -287,6 +298,7 @@ function rejectUnknownKeys(value, allowed, label) {
 async function validateReferencedFiles(packageDir, manifest) {
   const references = [
     [manifest.icon.src, null, true],
+    ...(manifest.sidebarIcon ? [[manifest.sidebarIcon.src, null, true]] : []),
     ...(manifest.heroImage ? [[manifest.heroImage.src, null, true]] : []),
     [manifest.localizationInfo.defaultFile, null, false],
     ...(manifest.localizationInfo.additionalLocales ?? []).map((entry) => [
@@ -361,6 +373,7 @@ async function validateDeclaredFiles(packageDir, manifest) {
   const declared = new Set([
     "tutti.agent.json",
     manifest.icon.src,
+    ...(manifest.sidebarIcon ? [manifest.sidebarIcon.src] : []),
     ...(manifest.heroImage ? [manifest.heroImage.src] : []),
     manifest.localizationInfo.defaultFile,
     ...(manifest.localizationInfo.additionalLocales ?? []).map((entry) => entry.file),

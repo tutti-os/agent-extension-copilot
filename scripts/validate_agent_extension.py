@@ -181,6 +181,12 @@ def check_declared_files(root: Path, manifest: dict[str, Any]) -> None:
     declared = {"tutti.agent.json"}
     declared.update(name for name in PACKAGE_DOCUMENTATION if (root / name).is_file())
     declared.add(require_safe_relative_path(manifest["icon"]["src"], "icon.src"))
+    if manifest.get("sidebarIcon") is not None:
+        declared.add(
+            require_safe_relative_path(
+                manifest["sidebarIcon"]["src"], "sidebarIcon.src"
+            )
+        )
     declared.add(require_safe_relative_path(manifest["heroImage"]["src"], "heroImage.src"))
     declared.update(
         require_safe_relative_path(value, f"profiles.{name}")
@@ -386,6 +392,7 @@ def validate(root: Path) -> None:
             "name",
             "description",
             "icon",
+            "sidebarIcon",
             "heroImage",
             "runtime",
             "profiles",
@@ -408,8 +415,14 @@ def validate(root: Path) -> None:
     check_install(runtime)
 
     validate_presentation_asset(root, manifest.get("icon"), "icon")
+    if manifest.get("sidebarIcon") is not None:
+        validate_presentation_asset(root, manifest.get("sidebarIcon"), "sidebarIcon")
     validate_presentation_asset(root, manifest.get("heroImage"), "heroImage")
     require_only_keys(manifest["icon"], {"type", "src"}, "icon")
+    if manifest.get("sidebarIcon") is not None:
+        require_only_keys(
+            manifest["sidebarIcon"], {"type", "src"}, "sidebarIcon"
+        )
     require_only_keys(manifest["heroImage"], {"type", "src"}, "heroImage")
 
     profiles = manifest.get("profiles")
