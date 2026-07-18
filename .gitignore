@@ -1,4 +1,14 @@
 node_modules/
+.pnpm-store/
+__pycache__/
+*.py[cod]
 build/
 dist/
+coverage/
+*.log
+*.zip
+*.pem
+*.key
+.env
+.env.*
 .DS_Store

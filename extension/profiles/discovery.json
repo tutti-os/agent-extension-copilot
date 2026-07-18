@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "tutti.agent.discovery.v1",
+  "candidates": [
+    {
+      "binaryNames": [
+        "copilot"
+      ],
+      "version": {
+        "args": [
+          "--version"
+        ],
+        "constraint": ">=1.0.71 <2.0.0"
+      },
+      "launchArgs": [
+        "--acp",
+        "--stdio"
+      ],
+      "probe": {
+        "kind": "acp-initialize",
+        "timeoutMs": 5000
+      }
+    }
+  ]
+}

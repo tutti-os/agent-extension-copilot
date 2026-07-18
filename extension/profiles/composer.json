@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "tutti.agent.composer.v1",
+  "model": {
+    "source": "acp-session-models"
+  },
+  "permission": {
+    "source": "acp-session-modes"
+  },
+  "permissionModes": [
+    {
+      "runtimeId": "https://agentclientprotocol.com/protocol/session-modes#autopilot",
+      "semantic": "full-access"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub Copilot CLI Agent Extension for Tutti</title>
+  <desc id="desc">Neutral Tutti-maintained artwork showing a terminal connected through ACP.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121826"/>
+      <stop offset="1" stop-color="#253553"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="40" fill="url(#background)"/>
+  <circle cx="1050" cy="100" r="210" fill="#8b5cf6" opacity="0.12"/>
+  <circle cx="120" cy="570" r="250" fill="#22d3ee" opacity="0.10"/>
+  <rect x="80" y="92" width="1040" height="446" rx="30" fill="#0b1020" stroke="#52627f" stroke-width="3"/>
+  <circle cx="124" cy="132" r="10" fill="#fb7185"/>
+  <circle cx="158" cy="132" r="10" fill="#fbbf24"/>
+  <circle cx="192" cy="132" r="10" fill="#34d399"/>
+  <path d="M80 170h1040" stroke="#52627f" stroke-width="3"/>
+  <path d="m136 252 52 42-52 42" fill="none" stroke="url(#accent)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M224 336h114" stroke="#e5e7eb" stroke-width="18" stroke-linecap="round"/>
+  <text x="136" y="425" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="54" font-weight="700">Copilot CLI</text>
+  <text x="136" y="478" fill="#a9b8d2" font-family="system-ui, sans-serif" font-size="28">Standard ACP · Declarative Tutti extension</text>
+  <g transform="translate(785 232)">
+    <rect width="250" height="160" rx="32" fill="#172033" stroke="url(#accent)" stroke-width="4"/>
+    <circle cx="72" cy="80" r="25" fill="#22d3ee"/>
+    <circle cx="178" cy="80" r="25" fill="#8b5cf6"/>
+    <path d="M97 80h56" stroke="#e5e7eb" stroke-width="10" stroke-linecap="round"/>
+    <text x="125" y="135" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="22" text-anchor="middle">ACP</text>
+  </g>
+</svg>

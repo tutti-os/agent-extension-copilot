@@ -1,0 +1,7 @@
+{
+  "agent.name": "GitHub Copilot CLI",
+  "agent.description": "通过标准 ACP 使用 GitHub Copilot CLI",
+  "runtime.install.title": "为 Tutti 安装 GitHub Copilot CLI",
+  "runtime.install.description": "仅在 Tutti 管理的运行时目录安装固定版本 GitHub Copilot CLI 1.0.71。",
+  "runtime.authRequired": "请先在终端运行 `copilot login`，或配置官方支持的令牌；ACP 无法使用交互式 /login 选择器。"
+}

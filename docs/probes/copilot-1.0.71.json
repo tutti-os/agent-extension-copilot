@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "tutti.agent.runtime-probe.evidence.v1",
+  "capturedAt": "2026-07-17",
+  "revalidatedAt": "2026-07-18",
+  "runtime": {
+    "package": "@github/copilot@1.0.71",
+    "registryVersion": "1.0.71",
+    "registryBin": {
+      "copilot": "npm-loader.js"
+    },
+    "registryIntegrity": "sha512-F3axBi+sXSLYDJbxCBW36bM6MYKNC2rlyAf3Ivo/MjiHKKJW7j5AmaR1IRYS9Gt8r9mxOwWFM1cJFA+CuLaR8g==",
+    "versionCommand": [
+      "copilot",
+      "--version"
+    ],
+    "versionOutput": "GitHub Copilot CLI 1.0.71."
+  },
+  "revalidation": {
+    "runtimeInstall": "isolated exact npm prefix",
+    "versionOutput": "GitHub Copilot CLI 1.0.71.",
+    "initializeProtocolVersion": 1,
+    "initializeAgentVersion": "1.0.71",
+    "initializeAuthMethodIds": [
+      "copilot-login"
+    ],
+    "sessionNew": {
+      "status": "error",
+      "error": {
+        "code": -32000,
+        "message": "Authentication required"
+      }
+    },
+    "paidPromptSent": false,
+    "secretMaterialRecorded": false
+  },
+  "probe": {
+    "command": [
+      "copilot",
+      "--acp",
+      "--stdio"
+    ],
+    "paidPromptSent": false,
+    "environmentValuesRecorded": false,
+    "initialize": {
+      "protocolVersion": 1,
+      "agentInfo": {
+        "name": "Copilot",
+        "title": "Copilot",
+        "version": "1.0.71"
+      },
+      "agentCapabilities": {
+        "loadSession": true,
+        "mcpCapabilities": {
+          "http": true,
+          "sse": true
+        },
+        "promptCapabilities": {
+          "image": true,
+          "audio": false,
+          "embeddedContext": true
+        },
+        "sessionCapabilities": {
+          "list": {}
+        }
+      },
+      "authMethods": [
+        {
+          "id": "copilot-login",
+          "name": "Log in with Copilot CLI",
+          "description": "Run `copilot login` in the terminal",
+          "terminalAuth": {
+            "command": "copilot",
+            "args": [
+              "login"
+            ],
+            "absoluteRuntimePathRedacted": true
+          }
+        }
+      ]
+    },
+    "sessionNew": {
+      "status": "ok",
+      "sessionId": "redacted",
+      "modes": {
+        "currentModeId": "https://agentclientprotocol.com/protocol/session-modes#agent",
+        "availableModes": [
+          {
+            "id": "https://agentclientprotocol.com/protocol/session-modes#agent",
+            "name": "Agent",
+            "description": "Default agent mode for conversational interactions"
+          },
+          {
+            "id": "https://agentclientprotocol.com/protocol/session-modes#plan",
+            "name": "Plan",
+            "description": "Plan mode for creating and executing multi-step plans"
+          },
+          {
+            "id": "https://agentclientprotocol.com/protocol/session-modes#autopilot",
+            "name": "Autopilot",
+            "description": "Autonomous mode that enables allow-all and runs until task completion without user interaction (experimental)"
+          }
+        ]
+      },
+      "configOptions": [
+        {
+          "id": "mode",
+          "type": "select",
+          "category": "mode",
+          "currentValue": "https://agentclientprotocol.com/protocol/session-modes#agent"
+        },
+        {
+          "id": "allow_all",
+          "type": "select",
+          "category": "permissions",
+          "currentValue": "off",
+          "options": [
+            "on",
+            "off"
+          ]
+        }
+      ],
+      "modelsFieldPresent": false
+    },
+    "notifications": {
+      "availableCommandsUpdateObserved": true,
+      "availableCommandCountInSanitizedProbe": 32,
+      "commandListPersistedInExtension": false,
+      "note": "Runtime notifications are authoritative full snapshots; locally discovered skills can change this list."
+    },
+    "toolEvidence": {
+      "promptSent": false,
+      "toolIdsObserved": [],
+      "profileMappingsDeclared": []
+    },
+    "credentialFreeEnvironment": {
+      "initializeStatus": "ok",
+      "sessionNewStatus": "error",
+      "error": {
+        "code": -32000,
+        "message": "Authentication required"
+      },
+      "secretMaterialRecorded": false
+    }
+  }
+}

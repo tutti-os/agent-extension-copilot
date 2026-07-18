@@ -1,0 +1,7 @@
+{
+  "agent.name": "GitHub Copilot CLI",
+  "agent.description": "GitHub Copilot CLI through the Agent Client Protocol",
+  "runtime.install.title": "Install GitHub Copilot CLI for Tutti",
+  "runtime.install.description": "Installs pinned GitHub Copilot CLI 1.0.71 only in Tutti's managed runtime directory.",
+  "runtime.authRequired": "Run `copilot login` in a terminal first, or configure an officially supported token. ACP cannot use the interactive /login picker."
+}
