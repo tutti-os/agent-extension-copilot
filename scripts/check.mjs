@@ -11,7 +11,7 @@ const capabilities = JSON.parse(await readFile(path.join(packageDir, manifest.pr
 const composer = JSON.parse(await readFile(path.join(packageDir, manifest.profiles.composer), 'utf8'));
 const discovery = JSON.parse(await readFile(path.join(packageDir, manifest.profiles.discovery), 'utf8'));
 const tools = JSON.parse(await readFile(path.join(packageDir, manifest.profiles.tools), 'utf8')).tools;
-if (manifest.schemaVersion !== 'tutti.agent.manifest.v1' || manifest.agentKey !== 'copilot' || manifest.version !== '1.0.0') throw new Error('invalid manifest identity');
+if (manifest.schemaVersion !== 'tutti.agent.manifest.v2' || manifest.agentKey !== 'copilot' || manifest.version !== '1.0.0') throw new Error('invalid manifest identity');
 const targetIdentity = {
   agentTargetId: `extension:${manifest.agentKey}`,
   provider: `acp:${manifest.agentKey}`

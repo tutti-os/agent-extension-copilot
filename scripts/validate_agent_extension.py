@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path, PurePosixPath
 from typing import Any
 
-MANIFEST_SCHEMA = "tutti.agent.manifest.v1"
+MANIFEST_SCHEMA = "tutti.agent.manifest.v2"
 PROFILE_SCHEMAS = {
     "discovery": "tutti.agent.discovery.v1",
     "tools": "tutti.agent.tools.v1",
@@ -181,10 +181,10 @@ def check_declared_files(root: Path, manifest: dict[str, Any]) -> None:
     declared = {"tutti.agent.json"}
     declared.update(name for name in PACKAGE_DOCUMENTATION if (root / name).is_file())
     declared.add(require_safe_relative_path(manifest["icon"]["src"], "icon.src"))
-    if manifest.get("sidebarIcon") is not None:
+    if manifest.get("maskIcon") is not None:
         declared.add(
             require_safe_relative_path(
-                manifest["sidebarIcon"]["src"], "sidebarIcon.src"
+                manifest["maskIcon"]["src"], "maskIcon.src"
             )
         )
     declared.add(require_safe_relative_path(manifest["heroImage"]["src"], "heroImage.src"))
@@ -392,7 +392,7 @@ def validate(root: Path) -> None:
             "name",
             "description",
             "icon",
-            "sidebarIcon",
+            "maskIcon",
             "heroImage",
             "runtime",
             "profiles",
@@ -415,13 +415,13 @@ def validate(root: Path) -> None:
     check_install(runtime)
 
     validate_presentation_asset(root, manifest.get("icon"), "icon")
-    if manifest.get("sidebarIcon") is not None:
-        validate_presentation_asset(root, manifest.get("sidebarIcon"), "sidebarIcon")
+    if manifest.get("maskIcon") is not None:
+        validate_presentation_asset(root, manifest.get("maskIcon"), "maskIcon")
     validate_presentation_asset(root, manifest.get("heroImage"), "heroImage")
     require_only_keys(manifest["icon"], {"type", "src"}, "icon")
-    if manifest.get("sidebarIcon") is not None:
+    if manifest.get("maskIcon") is not None:
         require_only_keys(
-            manifest["sidebarIcon"], {"type", "src"}, "sidebarIcon"
+            manifest["maskIcon"], {"type", "src"}, "maskIcon"
         )
     require_only_keys(manifest["heroImage"], {"type", "src"}, "heroImage")
 
