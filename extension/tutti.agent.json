@@ -1,7 +1,7 @@
 {
   "schemaVersion": "tutti.agent.manifest.v2",
   "agentKey": "copilot",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "name": "GitHub Copilot CLI",
   "description": "GitHub Copilot CLI through the Agent Client Protocol",
   "icon": {
